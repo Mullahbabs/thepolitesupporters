@@ -225,7 +225,7 @@ body {
   .hero-carousel {
     height: 320px;
     margin: 1rem 0;
-    border-radius: 0.5rem;
+    border-radius: 3.5rem;
     box-shadow: 0 20px 30px rgba(100, 50, 20, 0.2);
   }
 
