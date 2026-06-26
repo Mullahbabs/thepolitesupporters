@@ -187,7 +187,7 @@
       @media (max-width: 1024px) {
         .hero-carousel {
           height: 450px;
-          border-radius: 1rem;
+          border-radius: 3rem;
         }
 
         .slide-content h2 {
@@ -208,7 +208,7 @@
         .hero-carousel {
           height: 380px;
           margin: 1.5rem 0;
-          border-radius: 0.75rem;
+          border-radius: 3.75rem;
         }
 
         .slide-content {
@@ -1280,7 +1280,7 @@
           <i class="fas fa-hand-holding-heart logo-icon"></i>
           <div><span class="logo-text">The Polite Supporters</span></div>
         </div>
-        <button class="nav-cta donate-btn open-donate-modal"></button>
+        <button class="nav-cta donate-btn open-donate-modal">
           <i class="fas fa-gift"></i> Donate Now
         </button>
       </div>
@@ -1811,6 +1811,9 @@
         </div>
         <div class="popup-actions">
           <button class="popup-btn primary" id="understandBtn">Continue</button>
+          <button class="popup-btn secondary" id="learnMoreBtn">
+            I Understand
+          </button>
         </div>
       </div>
     </div>
@@ -1921,7 +1924,7 @@
 
         const totalEl = document.getElementById("totalDonated");
         if (totalEl) {
-          const final = 2847630;
+          const final = 284763;
           const timer = setInterval(() => {
             let curr =
               parseInt(totalEl.textContent.replace(/[^0-9]/g, "")) || 0;
@@ -1929,7 +1932,7 @@
               totalEl.textContent =
                 "$" + Math.min(curr + 15000, final).toLocaleString();
             } else clearInterval(timer);
-          }, 30);
+          }, 90);
         }
       })();
 
