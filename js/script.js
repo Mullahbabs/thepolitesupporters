@@ -589,3 +589,240 @@ window.copyWallet = copyWallet;
     "🌈 Disability Pride Month Ticker initialized - Celebrating all abilities!",
   );
 })();
+
+// ===== EmailJS Configuration =====
+(function() {
+  // Initialize EmailJS with your Public Key
+  // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+  emailjs.init('YOUR_PUBLIC_KEY');
+
+  // ===== Contact Form Handling =====
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = submitBtn.querySelector('.btn-text');
+  const btnLoading = submitBtn.querySelector('.btn-loading');
+  const successModal = document.getElementById('successModal');
+  const closeSuccessBtn = document.getElementById('closeSuccessModal');
+  const referenceId = document.getElementById('referenceId');
+  const charCount = document.getElementById('charCount');
+  const messageTextarea = document.getElementById('message');
+
+  // Character counter for message box
+  if (messageTextarea && charCount) {
+    messageTextarea.addEventListener('input', function() {
+      const length = this.value.length;
+      charCount.textContent = `${length}/1000`;
+      
+      if (length > 900) {
+        charCount.style.color = '#e74c3c';
+      } else {
+        charCount.style.color = '#8b6b58';
+      }
+    });
+  }
+
+  // Form validation
+  function validateForm() {
+    let isValid = true;
+    
+    // Clear previous errors
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+    document.querySelectorAll('.input-wrapper input, .input-wrapper select, .input-wrapper textarea').forEach(el => el.classList.remove('error'));
+    
+    // Full Name validation
+    const fullName = document.getElementById('fullName').value.trim();
+    if (!fullName) {
+      document.getElementById('fullNameError').textContent = 'Full name is required';
+      document.getElementById('fullName').classList.add('error');
+      isValid = false;
+    } else if (fullName.length < 3) {
+      document.getElementById('fullNameError').textContent = 'Name must be at least 3 characters';
+      document.getElementById('fullName').classList.add('error');
+      isValid = false;
+    }
+    
+    // Email validation
+    const email = document.getElementById('email').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      document.getElementById('emailError').textContent = 'Email address is required';
+      document.getElementById('email').classList.add('error');
+      isValid = false;
+    } else if (!emailRegex.test(email)) {
+      document.getElementById('emailError').textContent = 'Please enter a valid email address';
+      document.getElementById('email').classList.add('error');
+      isValid = false;
+    }
+    
+    // Phone validation (optional)
+    const phone = document.getElementById('phone').value.trim();
+    if (phone && phone.length < 10) {
+      document.getElementById('phoneError').textContent = 'Please enter a valid phone number';
+      document.getElementById('phone').classList.add('error');
+      isValid = false;
+    }
+    
+    // Enquiry type validation
+    const enquiryType = document.getElementById('enquiryType').value;
+    if (!enquiryType) {
+      document.getElementById('enquiryTypeError').textContent = 'Please select an enquiry type';
+      document.getElementById('enquiryType').classList.add('error');
+      isValid = false;
+    }
+    
+    // Message validation
+    const message = document.getElementById('message').value.trim();
+    if (!message) {
+      document.getElementById('messageError').textContent = 'Message is required';
+      document.getElementById('message').classList.add('error');
+      isValid = false;
+    } else if (message.length < 10) {
+      document.getElementById('messageError').textContent = 'Message must be at least 10 characters';
+      document.getElementById('message').classList.add('error');
+      isValid = false;
+    }
+    
+    return isValid;
+  }
+
+  // Generate reference ID
+  function generateReferenceId() {
+    const timestamp = Date.now().toString(36).toUpperCase();
+    const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+    return `TPS-${timestamp}-${random}`;
+  }
+
+  // Show loading state
+  function setLoading(isLoading) {
+    if (isLoading) {
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline-flex';
+    } else {
+      submitBtn.disabled = false;
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+    }
+  }
+
+  // Show success modal
+  function showSuccessModal(refId) {
+    referenceId.textContent = refId;
+    successModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Close success modal
+  function closeSuccessModal() {
+    successModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Handle form submission
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Validate form
+    if (!validateForm()) {
+      // Scroll to first error
+      const firstError = document.querySelector('.error');
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstError.focus();
+      }
+      return;
+    }
+    
+    // Set loading state
+    setLoading(true);
+    
+    // Prepare form data
+    const formData = {
+      fullName: document.getElementById('fullName').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim() || 'Not provided',
+      enquiryType: document.getElementById('enquiryType').value,
+      enquiryTypeLabel: document.getElementById('enquiryType').selectedOptions[0].text,
+      message: document.getElementById('message').value.trim(),
+      referenceId: generateReferenceId(),
+      submittedAt: new Date().toLocaleString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      })
+    };
+    
+    try {
+      // Replace with your actual EmailJS Service ID and Template ID
+      const response = await emailjs.send(
+        'YOUR_SERVICE_ID',      // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID',     // Replace with your EmailJS template ID
+        {
+          from_name: formData.fullName,
+          from_email: formData.email,
+          phone: formData.phone,
+          enquiry_type: formData.enquiryTypeLabel,
+          message: formData.message,
+          reference_id: formData.referenceId,
+          submitted_at: formData.submittedAt,
+          to_email: 'hope@politesupporters.org' // Your receiving email
+        }
+      );
+      
+      console.log('Email sent successfully:', response);
+      
+      // Show success modal
+      showSuccessModal(formData.referenceId);
+      
+      // Reset form
+      contactForm.reset();
+      if (charCount) charCount.textContent = '0/1000';
+      
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      
+      // Show error message to user
+      alert('Sorry, there was an error sending your message. Please try again or email us directly at hope@politesupporters.org');
+      
+    } finally {
+      setLoading(false);
+    }
+  });
+
+  // Close modal handlers
+  closeSuccessBtn.addEventListener('click', closeSuccessModal);
+  
+  successModal.addEventListener('click', function(e) {
+    if (e.target === successModal) {
+      closeSuccessModal();
+    }
+  });
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && successModal.classList.contains('active')) {
+      closeSuccessModal();
+    }
+  });
+
+  // Real-time validation (clear errors on input)
+  const inputs = document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea');
+  inputs.forEach(input => {
+    input.addEventListener('input', function() {
+      this.classList.remove('error');
+      const errorEl = document.getElementById(this.id + 'Error');
+      if (errorEl) errorEl.textContent = '';
+    });
+    
+    input.addEventListener('change', function() {
+      this.classList.remove('error');
+      const errorEl = document.getElementById(this.id + 'Error');
+      if (errorEl) errorEl.textContent = '';
+    });
+  });
+
+  console.log('✅ Contact form initialized with EmailJS');
+})();
