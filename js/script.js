@@ -366,6 +366,10 @@ window.copyWallet = copyWallet;
 (function () {
   const prideMessages = [
     {
+      icon: "fa-solid fa-calendar",
+      text: "Celebrating July as — Disability pride month!",
+    },
+    {
       icon: "fa-solid fa-wheelchair",
       text: "Disability is not inability — it's a different ability!",
     },

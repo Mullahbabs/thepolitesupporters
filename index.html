@@ -26,30 +26,28 @@
       </div>
     </header>
 
-    <!-- Disability Pride Month Ticker -->
-    <div class="pride-ticker-wrapper">
-      <div class="pride-ticker">
-        <div class="pride-ticker-track" id="prideTickerTrack">
-          <!-- Messages will be dynamically inserted -->
-        </div>
-      </div>
-      <button class="pride-ticker-close" id="closePrideTicker" title="Close">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-
     <main class="container">
       <div class="hero-carousel" id="heroCarousel">
         <div
           class="carousel-slide active"
+          style="background-image: url(&quot;/img/bg3.jpg&quot;)"
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h2>Happy Disability Awareness Pride Month</h2>
+            <p>
+              Supporting autistic & dyslexic children with love and resources.
+            </p>
+          </div>
+        </div>
+        <div
+          class="carousel-slide"
           style="background-image: url(&quot;/img/politecover.jpg&quot;)"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
-            <h2>Every Child Deserves a Chance</h2>
-            <p>
-              Supporting autistic & dyslexic children with love and resources.
-            </p>
+            <h2>Inclusion & Opportunity For All</h2>
+            <p>Building sustainable futures through community empowerment.</p>
           </div>
         </div>
         <div
@@ -62,16 +60,6 @@
             <p>Relief for those affected by insurgency and displacement.</p>
           </div>
         </div>
-        <div
-          class="carousel-slide"
-          style="background-image: url(&quot;/img/bg3.jpg&quot;)"
-        >
-          <div class="slide-overlay"></div>
-          <div class="slide-content">
-            <h2>Inclusion & Opportunity</h2>
-            <p>Building sustainable futures through community empowerment.</p>
-          </div>
-        </div>
         <div class="carousel-dots" id="carouselDots">
           <span class="dot active" data-index="0"></span>
           <span class="dot" data-index="1"></span>
@@ -79,8 +67,8 @@
         </div>
       </div>
 
-      <h2>
-        <i class="fas fa-newspaper" style="color: #b45f3a"></i>Our Stats Over
+      <h2 style="text-align: center; margin-top: 25px;">
+        <i class="fas fa-chart-column" style="color: #b45f3a"></i> Over the past
         three years.
       </h2>
       <div class="stats-row">
@@ -98,11 +86,23 @@
         </div>
       </div>
 
+      <!-- Disability Pride Month Ticker -->
+      <div class="pride-ticker-wrapper">
+        <div class="pride-ticker">
+          <div class="pride-ticker-track" id="prideTickerTrack">
+            <!-- Messages will be dynamically inserted -->
+          </div>
+        </div>
+        <button class="pride-ticker-close" id="closePrideTicker" title="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
       <section class="about-section">
         <div style="flex: 1; text-align: justify">
           <h2>#Every Child Deserves a Chance. Every Family Deserves Hope.</h2>
           <p>
-            The Polite Supporters is a humanitarian organization committed to
+            The Polite Supporters is an online collective committed to
             supporting autistic and dyslexic children, assisting vulnerable
             families, and helping communities recover from hardship and
             conflict. We believe that every child deserves the opportunity to
@@ -123,6 +123,127 @@
         </div>
         <div class="about-image-wrapper">
           <img src="img/politeppic.jpg" alt="Our mission in action" />
+        </div>
+      </section>
+
+      <!-- Mission, Vision & Core Values Section -->
+      <section class="mvvc-section">
+        <div class="container">
+          <div class="mvvc-header">
+            <h2 class="mvvc-main-title"><i class="fas fa-compass" style="color: #b45f3a"></i> Our Guiding Principles</h2>
+            <p class="mvvc-subtitle">
+              A collective that drives every action we take
+            </p>
+          </div>
+
+          <div class="mvvc-grid">
+            <!-- Mission Card -->
+            <div class="mvvc-card mission-card">
+              <div class="mvvc-card-inner">
+                <div class="mvvc-icon-wrapper">
+                  <div class="mvvc-icon-bg"></div>
+                  <i class="fas fa-bullseye mvvc-icon"></i>
+                </div>
+                <div class="mvvc-card-content">
+                  <h3 class="mvvc-card-title">Our Mission</h3>
+                  <p class="mvvc-card-text">
+                    To provide practical assistance, educational support,
+                    advocacy, humanitarian relief, and long-term empowerment for
+                    vulnerable children and families affected by disability,
+                    conflict, and poverty.
+                  </p>
+                  <ul class="mvvc-list">
+                    <li>
+                      <i class="fas fa-check-circle"></i> Support autistic &
+                      dyslexic children
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Provide emergency
+                      relief to displaced families
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Advocate for inclusion
+                      & accessibility
+                    </li>
+                  </ul>
+                </div>
+                <div class="mvvc-card-accent"></div>
+              </div>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="mvvc-card vision-card">
+              <div class="mvvc-card-inner">
+                <div class="mvvc-icon-wrapper">
+                  <div class="mvvc-icon-bg"></div>
+                  <i class="fas fa-eye mvvc-icon"></i>
+                </div>
+                <div class="mvvc-card-content">
+                  <h3 class="mvvc-card-title">Our Vision</h3>
+                  <p class="mvvc-card-text">
+                    A world where every child is valued, supported, and given
+                    the opportunity to succeed — regardless of disability,
+                    background, or circumstances beyond their control.
+                  </p>
+                  <ul class="mvvc-list">
+                    <li>
+                      <i class="fas fa-check-circle"></i> Inclusive communities
+                      worldwide
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Zero barriers to
+                      education & healthcare
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i> Every family living
+                      with dignity & hope
+                    </li>
+                  </ul>
+                </div>
+                <div class="mvvc-card-accent"></div>
+              </div>
+            </div>
+
+            <!-- Core Values Card -->
+            <div class="mvvc-card values-card">
+              <div class="mvvc-card-inner">
+                <div class="mvvc-icon-wrapper">
+                  <div class="mvvc-icon-bg"></div>
+                  <i class="fas fa-gem mvvc-icon"></i>
+                </div>
+                <div class="mvvc-card-content">
+                  <h3 class="mvvc-card-title">Our Core Values</h3>
+                  <p class="mvvc-card-text">
+                    The principles that guide our actions and define our
+                    commitment to the communities we serve every single day.
+                  </p>
+                  <ul class="mvvc-list">
+                    <li>
+                      <i class="fas fa-check-circle"></i>
+                      <strong>Compassion</strong> — Every life matters
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i>
+                      <strong>Inclusion</strong> — No one left behind
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i>
+                      <strong>Integrity</strong> — Transparency in all we do
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i>
+                      <strong>Empowerment</strong> — Sustainable change
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle"></i>
+                      <strong>Hope</strong> — Restoring dignity & future
+                    </li>
+                  </ul>
+                </div>
+                <div class="mvvc-card-accent"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -151,7 +272,8 @@
             class="donate-btn open-donate-modal"
             style="display: inline-block; margin-top: 1rem"
           >
-            🔗 Donate to This Project
+            <i class="fas fa-seedling" style="color: #ffed00"></i>
+            Donate to This Project
           </button>
         </div>
         <div class="image-wrapper">
@@ -162,8 +284,9 @@
         </div>
       </div>
 
-      <h2>
-        <i class="fas fa-newspaper" style="color: #b45f3a"></i> Our Campaigns
+      <h2 style="text-align: center">
+        <i class="fas fa-bullhorn" style="color: #b45f3a"></i> Our Active
+        Campaigns
       </h2>
       <div class="campaigns-grid">
         <div class="campaign-card">
@@ -176,7 +299,10 @@
             <div class="progress-container">
               <div class="progress-bar" data-percent="20"></div>
             </div>
-            <button class="donate-btn open-donate-modal">💛 Donate</button>
+            <button class="donate-btn open-donate-modal">
+              <i class="fas fa-puzzle-piece" style="color: #ffed00"></i>💛
+              Donate
+            </button>
           </div>
         </div>
         <div class="campaign-card">
@@ -246,6 +372,40 @@
         </div>
       </div>
 
+      <h2 style="text-align: center">
+        <i class="fas fa-handshake" style="color: #b45f3a"></i> Our Global
+        Partners
+      </h2>
+
+      <div class="partners-ticker">
+        <div class="ticker-track">
+          <span class="partner-logo"
+            ><i class="fas fa-building"></i> Global Hope Network</span
+          >
+          <span class="partner-logo"
+            ><i class="fas fa-handshake"></i> ChildAid International</span
+          >
+          <span class="partner-logo"
+            ><i class="fas fa-globe"></i> Unity Relief Fund</span
+          >
+          <span class="partner-logo"
+            ><i class="fas fa-heart"></i> Brighter Futures Org</span
+          >
+          <span class="partner-logo"
+            ><i class="fas fa-seedling"></i> Empower Together</span
+          >
+          <span class="partner-logo"
+            ><i class="fas fa-ribbon"></i> Inclusion Partners</span
+          >
+          <span class="partner-logo"
+            ><i class="fas fa-building"></i> Global Hope Network</span
+          >
+          <span class="partner-logo"
+            ><i class="fas fa-handshake"></i> ChildAid International</span
+          >
+        </div>
+      </div>
+
       <section class="blog-section">
         <h2>
           <i class="fas fa-newspaper" style="color: #b45f3a"></i> Stories &
@@ -302,40 +462,6 @@
           </div>
         </div>
       </section>
-
-      <h2>
-        <i class="fas fa-newspaper" style="color: #b45f3a"></i> Our Global
-        Partners
-      </h2>
-
-      <div class="partners-ticker">
-        <div class="ticker-track">
-          <span class="partner-logo"
-            ><i class="fas fa-building"></i> Global Hope Network</span
-          >
-          <span class="partner-logo"
-            ><i class="fas fa-handshake"></i> ChildAid International</span
-          >
-          <span class="partner-logo"
-            ><i class="fas fa-globe"></i> Unity Relief Fund</span
-          >
-          <span class="partner-logo"
-            ><i class="fas fa-heart"></i> Brighter Futures Org</span
-          >
-          <span class="partner-logo"
-            ><i class="fas fa-seedling"></i> Empower Together</span
-          >
-          <span class="partner-logo"
-            ><i class="fas fa-ribbon"></i> Inclusion Partners</span
-          >
-          <span class="partner-logo"
-            ><i class="fas fa-building"></i> Global Hope Network</span
-          >
-          <span class="partner-logo"
-            ><i class="fas fa-handshake"></i> ChildAid International</span
-          >
-        </div>
-      </div>
     </main>
 
     <div class="modal" id="donationModal">
@@ -384,10 +510,7 @@
 
         <div class="crypto-panel" id="ethereumPanel">
           <div class="crypto-qr">
-            <img
-              src="img/IMG_9751.jpg"
-              alt="Ethereum QR Code"
-            />
+            <img src="img/IMG_9751.jpg" alt="Ethereum QR Code" />
           </div>
           <div class="wire-details">
             <p>
@@ -414,10 +537,7 @@
 
         <div class="crypto-panel" id="usdtPanel">
           <div class="crypto-qr">
-            <img
-              src="img/IMG_9753.jpg"
-              alt="USDT QR Code"
-            />
+            <img src="img/IMG_9753.jpg" alt="USDT QR Code" />
           </div>
           <div class="wire-details">
             <p>
